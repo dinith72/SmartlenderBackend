@@ -1,0 +1,19 @@
+{
+  "name": "smartlender_server",
+  "version": "1.0.0",
+  "description": "backend of the smartlender web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinith72/SmartlenderBackend.git"
+  },
+  "author": "Dinith Jayabodhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinith72/SmartlenderBackend/issues"
+  },
+  "homepage": "https://github.com/dinith72/SmartlenderBackend#readme"
+}
