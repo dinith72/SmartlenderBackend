@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/dinith72/SmartlenderBackend/issues"
   },
-  "homepage": "https://github.com/dinith72/SmartlenderBackend#readme"
+  "homepage": "https://github.com/dinith72/SmartlenderBackend#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "promise-mysql": "^3.3.1"
+  }
 }
