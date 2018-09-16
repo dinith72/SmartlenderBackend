@@ -2,7 +2,6 @@ const express = require('express');
 const joi = require('joi');
 const router =  express();
 router.use(express.json()); // convert the jason data to the body
-// const mysql = require('mysql');
 const connection = require('../conFig/dbConnection'); // getting db info
 var branch;
 
