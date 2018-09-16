@@ -20,6 +20,7 @@
     "encodeurl": "^1.0.2",
     "express": "^4.16.3",
     "joi": "^13.6.0",
+    "mysql": "^2.16.0",
     "promise-mysql": "^3.3.1"
   }
 }

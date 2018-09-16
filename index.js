@@ -1,4 +1,6 @@
-const login = require('./routes/login/login');
+const login = require('./routes/login');
+const company = require('./routes/company');
+const branch = require('./routes/branch');
 const portConfig = require('./conFig/portConfig');
 const express = require('express');
 const app = express();
@@ -9,6 +11,8 @@ app.get('/api',(req,res)=>{
 });
 
 app.use('/api/login',login);
+app.use('/api/com',company);
+app.use('/api/brn',branch);
 
 app.listen(portConfig.port, ()=>{
     console.log(`listining on port ${portConfig.port}`);

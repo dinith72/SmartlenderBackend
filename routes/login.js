@@ -1,7 +1,7 @@
 const express = require('express');
 const joi = require('joi');
-const portInfo = require('../../conFig/portConfig');
-const dbconfig = require('../../conFig/databaseConfig');
+const portInfo = require('../conFig/portConfig');
+const dbconfig = require('../conFig/databaseConfig');
 const router =  express();
 router.use(express.json()); // convert the jason data to the body
 const mysql = require('promise-mysql');

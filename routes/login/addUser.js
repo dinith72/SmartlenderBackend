@@ -15,7 +15,7 @@ mysql.createConnection({
     database:dbconfig.database
 }).then((conn)=>{
     this.connection = conn;
-    console.log(`conn created ${connection} `);
+    // console.log(`conn created ${connection} `);
 }).catch((error)=>{
     console.log(error);
 });
