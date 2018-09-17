@@ -6,36 +6,26 @@ const connection = require('../conFig/dbConnection'); // getting db info
 
 
 
-// creating the connection
-connection.connect((err)=>{
-    if(err){
-        console.log(err);
-    }
-});
+// // creating the connection
+// connection.connect((err)=>{
+//     if(err){
+//         console.log(err);
+//     }
+// });
 
 //add new customer : schema definition
 const schemaAdd = {
-    nic : joi.string().min(9).max(12).required(),
-    name : joi.string().required(),
-    gender : joi.string().required(),
-    status : joi.string().required(),
-    dob : joi.string().required(),
+    nic : joi.string().required(),
+    comId: joi.number().min(1).required(),
+    title : joi.string().required(),
+    firstName : joi.string().required(),
+    lastName: joi.string().required(),
     address : joi.string().required(),
-    businessType: joi.string().required(),
-    
-
+    dob : joi.string().required(),
+    status : joi.string().min(1).max(1).required(),
+    profPicUrl : joi.string()
 };
 
-// update loan info : schema definition
-const schemaUpdate = {
-    nic : joi.string().min(9).max(12).required(),
-    name : joi.string().required(),
-    gender : joi.string().required(),
-    status : joi.string().required(),
-    dob : joi.string().required(),
-    address : joi.string().required(),
-    businessType: joi.string().required(),
-};
 
 //adding new loan to the database
 router.put('/addCus',(req,res) => {
@@ -47,25 +37,29 @@ router.put('/addCus',(req,res) => {
     }
     const customer = {
         nic : req.body.nic,
-        name : req.body.name,
-        gender: req.body.gender,
-        status: req.body.status,
-        dob : req.body.dob,
+        comId: req.body.comId,
+        title : req.body.title,
+        firstName : req.body.firstName,
+        lastName: req.body.className,
         address : req.body.address,
-        businessType : req.body.businessType
+        dob : req.body.dob,
+        status: req.body.status,
+        profPicUrl : req.body.profPicUrl
 
-    }
-
-    connection.query("",
-    [customer.nic , customer.name, customer.gender , customer.status , customer.dob ,
-         customer.address , customer.businessType],
+    };
+    const sql = "insert into customer ( customer.NIC , customer.company_idcompany , customer.title , customer.firstName ,\n" +
+        " customer.lastName , customer.adress , customer.birthdate , customer.`status` , customer.profilePicUrl) \n" +
+        "values (? , ? , ?, ? , ? , ? , ? , ? , ?);";
+    connection.query(sql,
+    [customer.nic ,customer.comId, customer.title , customer.firstName , customer.lastName, customer.address ,  customer.dob ,customer.status ,
+         customer.profPicUrl],
     (err,result)=>{
         if(err){
             res.status(400).send(error);
             return;
         }
         if(result.affectedRows >0){
-            res.status(200).send(result.insertId.toString())
+            res.status(200).send("success")
         }else{
             res.status(400).send("error in addition of record ");
         }
@@ -78,12 +72,13 @@ router.put('/addCus',(req,res) => {
 
 
 // get a payment with a specific id
-router.get('/:id',(req,res) =>{
-    var id = req.params.id ;
+router.get('/:nic/:comId',(req,res) =>{
+    const comId = req.params.comId ;
+    const  nic = req.params.nic;
     // username is passed as varible
     
-        connection.query("",
-            [id],(error,rows,fields)=>{
+        connection.query("SELECT * FROM smartlender.customer where customer.NIC = ? and customer.company_idcompany = ? ;",
+            [nic,comId],(error,rows,fields)=>{
                 if(error){
                     console.log(`error : ${error}`);
                 } else{
@@ -104,27 +99,32 @@ router.get('/:id',(req,res) =>{
 });
 
 // update the payment with some details
-router.post('/updatePmt',(req,res)=>{
-    const result = joi.validate(req.body, schemaUpdate);
+router.post('/updateCus',(req,res)=>{
+    const result = joi.validate(req.body, schemaAdd);
     if (result.error) {
         res.status(400).send(result.error.details[0].message);
         return;
     }
     const customer = {
         nic : req.body.nic,
-        name : req.body.name,
-        gender: req.body.gender,
-        status: req.body.status,
-        dob : req.body.dob,
+        comId: req.body.comId,
+        title : req.body.title,
+        firstName : req.body.firstName,
+        lastName: req.body.className,
         address : req.body.address,
-        businessType : req.body.businessType
+        dob : req.body.dob,
+        status: req.body.status,
+        profPicUrl : req.body.profPicUrl
 
-    }
+    };
     
-    var sql = "";
+    var sql = "update customer set  customer.title = ?,customer.firstName = ? , customer.lastName = ? , customer.adress = ? , customer.birthdate = ?,\n" +
+        "customer.`status` = ?, customer.profilePicUrl = ? \n" +
+        "where customer.NIC = ? and customer.company_idcompany = ?  ;";
 
-        connection.query(sql,[ customer.name, customer.gender , customer.status , customer.dob ,
-            customer.address , customer.businessType , customer.nic ,],
+        connection.query(sql,
+            [ customer.title , customer.firstName , customer.lastName, customer.address ,  customer.dob ,customer.status ,
+                customer.profPicUrl , customer.nic ,customer.comId],
             (err , result)=>{
                 if(err){
                     res.status(400).send(err);
@@ -133,7 +133,7 @@ router.post('/updatePmt',(req,res)=>{
                 if(result.affectedRows >0){
                     res.send("success");
                 }else{
-                    res.status(400).send("incorrect branch id");
+                    res.status(400).send("incorrect customer id , company id combination");
                 }
             console.log(result.rowsAffected);
         }) ;

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2124ad4-7886-41a5-937d-1a6810c25809" name="Default" comment="updates to the center routing structure">
+    <list default="true" id="c2124ad4-7886-41a5-937d-1a6810c25809" name="Default" comment="updates to the customer routing structure">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/routes/center" afterPath="$PROJECT_DIR$/routes/center.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/customer.js" afterPath="$PROJECT_DIR$/routes/customer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,21 +18,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="center.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/center.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="120" column="38" lean-forward="false" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
+            <state relative-caret-position="484">
+              <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
+      <file leaf-file-name="customer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/customer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+            <state relative-caret-position="356">
+              <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="center.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/center.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2301">
+              <caret line="120" column="38" lean-forward="false" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -69,8 +79,9 @@
         <option value="$PROJECT_DIR$/routes/company.js" />
         <option value="$PROJECT_DIR$/conFig/dbConnection.js" />
         <option value="$PROJECT_DIR$/routes/login.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/routes/center.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/routes/customer.js" />
       </list>
     </option>
   </component>
@@ -178,7 +189,7 @@
       <workItem from="1537066809616" duration="6433000" />
       <workItem from="1537108219413" duration="7680000" />
       <workItem from="1537139864709" duration="3500000" />
-      <workItem from="1537196902228" duration="4268000" />
+      <workItem from="1537196902228" duration="8899000" />
     </task>
     <task id="LOCAL-00001" summary="created the basic foundation for the app&#10;-port info&#10;-db login info">
       <created>1536996972613</created>
@@ -222,11 +233,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537143535289</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updates to the center routing structure">
+      <created>1537201183856</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1537201183856</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45352000" />
+    <option name="totallyTimeSpent" value="49983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -311,7 +329,8 @@
     <MESSAGE value="ammendments to company file : incoperate it with my-sql serviceand new db pattern" />
     <MESSAGE value="ammendments to login file : incoperate it with my-sql service and new db pattern" />
     <MESSAGE value="updates to the center routing structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates to the center routing structure" />
+    <MESSAGE value="updates to the customer routing structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates to the customer routing structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -570,16 +589,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        <state relative-caret-position="484">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/center.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="2301">
           <caret line="120" column="38" lean-forward="false" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/customer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding />
         </state>
       </provider>
