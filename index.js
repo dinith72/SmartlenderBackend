@@ -18,9 +18,10 @@ app.get('/api',(req,res)=>{
 app.use('/api/login',login);
 app.use('/api/com',company);
 app.use('/api/brn',branch);
-app.use('api/loan',loan);
-app.use('api/cust', custermer);
-app.use('api/pmt',payment);
+app.use('/api/cen',center)
+// app.use('api/loan',loan);
+// app.use('api/cust', custermer);
+// app.use('api/pmt',payment);
 
 app.listen(portConfig.port, ()=>{
     console.log(`listining on port ${portConfig.port}`);

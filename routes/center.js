@@ -5,17 +5,21 @@ router.use(express.json()); // convert the jason data to the body
 const connection = require('../conFig/dbConnection');
 
 // creating the connection
-connection.connect((err)=>{
-    if(err){
-        console.log(err);
-    }
-});
+// connection.connect((err)=>{
+//     if(err){
+//         console.log(err);
+//     }
+// });
 
 // add ceneter : schema defininton
 const schema = {
     name : joi.string().required(),
-    managerId : joi.string(),
+    address: joi.string().required(),
+    setUpDate: joi.string(),
+    managerId : joi.string().required(),
     branchId : joi.number().min(1).required(),
+    active: joi.number().max(1).min(0).required(),
+    dissDate: joi.string()
 
 };
 
@@ -23,8 +27,12 @@ const schema = {
 const schemaUpdate = {
     cenId: joi.number().min(1).required(),
     name : joi.string(),
+    address: joi.string(),
+    setUpDate: joi.string(),
     managerId : joi.string(),
     branchId : joi.number().min(1),
+    status: joi.number().max(1).min(0),
+    dissDate: joi.string()
 };
 
 //adding new company to the database
@@ -37,12 +45,19 @@ router.put('/addCen',(req,res) => {
     }
     const center = {
         name : req.body.name,
+        address: req.body.address,
+        setUpDate: req.body.setUpDate,
         managerId : req.body.managerId,
         branchId : req.body.branchId,
+        status: req.body.status,
+        dissDate: req.body.dissDate
     
     };
-    connection.query("",
-        [center.name,center.managerId,center.branchId],
+    var sql = "insert into center ( center.centerName , center.centerAdress , \n" +
+        "center.centerSetUpDate , center.centerInCharge ,center.branch_idbranch , center.`status`, center.centerDissolvedDate) \n" +
+        "values (? , ? , ?, ? , ? , ? ,?);";
+    connection.query(sql,
+        [center.name, center.address, center.setUpDate,  center.managerId,center.branchId , center.status , center.dissDate],
         (err,result)=>{
             if(err){
                 res.status(400).send(error);
@@ -61,7 +76,7 @@ router.put('/addCen',(req,res) => {
 router.get('/:id',(req,res) =>{
     var id = req.params.id ;
     // username is passed as varible
-    connection.query("",
+    connection.query("SELECT * FROM center where center.idcenter = ?;",
         [id],
         (error,rows,fields)=>{
         if(error){
@@ -90,16 +105,24 @@ router.post('/updateCen',(req,res)=>{
     }
     const center = {
         cenId: req.body.cenId,
-        name : req.body.name,
+        name: req.body.name,
+        address: req.body.address,
+        setUpDate: req.body.setUpDate,
         managerId : req.body.managerId,
         branchId : req.body.branchId,
+        status: req.body.status,
+        dissDate: req.body.dissDate
+
     
     }; 
 
-    var sql = "";
+    var sql = "update center set center.centerName = ? , center.centerAdress = ? , center.centerSetUpDate = ? , \n" +
+        "center.centerInCharge = ? , center.branch_idbranch = ? , center.`status` = ?, center.centerDissolvedDate = ?\n" +
+        "where center.idcenter = ? ;";
 
-    connection.query(sql,[ center.name,center.managerId,center.branchId, center.cenId],
-        (err , result)=>{
+    connection.query(sql,
+        [center.name, center.address, center.setUpDate,  center.managerId,center.branchId , center.status , center.dissDate, center.cenId ],
+        (err,result)=>{
             if(err){
                 res.status(400).send(err);
                 return;
