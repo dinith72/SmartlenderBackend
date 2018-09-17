@@ -1,6 +1,10 @@
 const login = require('./routes/login');
 const company = require('./routes/company');
 const branch = require('./routes/branch');
+const loan = require('./routes/loan');
+const payment = require('./routes/payment');
+const custermer = require('./routes/customer');
+
 const portConfig = require('./conFig/portConfig');
 const express = require('express');
 const app = express();
@@ -13,6 +17,9 @@ app.get('/api',(req,res)=>{
 app.use('/api/login',login);
 app.use('/api/com',company);
 app.use('/api/brn',branch);
+app.use('api/loan',loan);
+app.use('api/cust', custermer);
+app.use('api/pmt',payment);
 
 app.listen(portConfig.port, ()=>{
     console.log(`listining on port ${portConfig.port}`);
