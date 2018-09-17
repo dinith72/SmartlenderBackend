@@ -4,6 +4,7 @@ const branch = require('./routes/branch');
 const loan = require('./routes/loan');
 const payment = require('./routes/payment');
 const custermer = require('./routes/customer');
+const center = require('./routes/center');
 
 const portConfig = require('./conFig/portConfig');
 const express = require('express');
