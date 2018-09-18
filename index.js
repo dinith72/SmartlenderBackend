@@ -23,7 +23,7 @@ app.use('/api/cen',center)
 app.use('/api/loan',loan);
 app.use('/api/cus', custermer);
 app.use('/api/lc',loancycle);   
-// app.use('/api/pmt',payment);
+app.use('/api/pmt',payment);
 
 app.listen(portConfig.port, ()=>{
     console.log(`listining on port ${portConfig.port}`);

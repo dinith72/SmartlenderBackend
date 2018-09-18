@@ -6,12 +6,12 @@ const connection = require('../conFig/dbConnection'); // getting db info
 var branch;
 
 
-// creating the connection
-connection.connect((err)=>{
-    if(err){
-        console.log(err);
-    }
-});
+// // creating the connection
+// connection.connect((err)=>{
+//     if(err){
+//         console.log(err);
+//     }
+// });
 
 //add new branch : schema definition
 const schemaAdd = {
