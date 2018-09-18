@@ -6,6 +6,7 @@ const payment = require('./routes/payment');
 const custermer = require('./routes/customer');
 const center = require('./routes/center');
 const loancycle = require('./routes/loanCycle');
+const employee = require('./routes/employee');
 
 const portConfig = require('./conFig/portConfig');
 const express = require('express');
@@ -24,6 +25,7 @@ app.use('/api/loan',loan);
 app.use('/api/cus', custermer);
 app.use('/api/lc',loancycle);   
 app.use('/api/pmt',payment);
+app.use('/api/emp',employee);
 
 app.listen(portConfig.port, ()=>{
     console.log(`listining on port ${portConfig.port}`);

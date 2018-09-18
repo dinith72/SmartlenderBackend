@@ -6,13 +6,6 @@ const connection = require('../conFig/dbConnection'); // getting db info
 
 
 
-// // creating the connection
-// connection.connect((err)=>{
-//     if(err){
-//         console.log(err);
-//     }
-// });
-
 //add new payment : schema definition
 const schemaAdd = {
    
