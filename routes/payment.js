@@ -123,7 +123,7 @@ router.post('/updatePmt',(req,res)=>{
             console.log(result.rowsAffected);
         }) ;
 
-
+            
 
 });
 // connection.end();
