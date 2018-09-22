@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dinith72/SmartlenderBackend#readme",
   "dependencies": {
+    "cors": "^2.8.4",
     "encodeurl": "^1.0.2",
     "express": "^4.16.3",
     "joi": "^13.6.0",

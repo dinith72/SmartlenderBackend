@@ -3,6 +3,8 @@ const joi = require('joi');
 const portInfo = require('../conFig/portConfig');
 
 const router =  express();
+const cors = require('cors');
+router.use(cors()); 
 router.use(express.json()); // convert the jason data to the body
 // const mysql = require('promise-mysql');
 const  connection = require('../conFig/dbConnection');
@@ -47,21 +49,23 @@ router.get('/',(req,res) =>{
 
 // check whther the entered username and pasword is correct
 router.post('/validate',(req,res) =>{
+    console.log("req came");
     var userName = req.body.un ;
     var passWord = req.body.pw;
+    console.log(userName , passWord);
     // username is passed as varible
     connection.query("SELECT login.`password` FROM login where login.username = ?;",[userName],
         (error,rows,fields)=>{
         if(error) {
-            res.status(400).send(`error : ${error}`);
+            res.status(400).send({"error" : `${error}`});
             return;
         }
         if(rows[0]){
             var dbpw = rows[0].password;
             if(dbpw == passWord){
-                res.send('valid');
+                res.send({"result":"valid"});
             }else {
-                res.send('invalid');
+                res.send({"result":"invalid"});
             }
             return;
         }

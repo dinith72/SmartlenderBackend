@@ -1,6 +1,8 @@
 const express = require('express');
 const joi = require('joi');
 const router =  express();
+const cors = require('cors');
+router.use(cors()); 
 router.use(express.json()); // convert the jason data to the body
 const connection = require('../conFig/dbConnection');
 

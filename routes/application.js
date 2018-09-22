@@ -1,6 +1,9 @@
 const express = require('express');
 const basejoi = require('joi');
+
 const router =  express();
+const cors = require('cors');
+router.use(cors());
 const dateExtension = require('joi-date-extensions');
 const joi = basejoi.extend(dateExtension);
 router.use(express.json()); // convert the jason data to the body

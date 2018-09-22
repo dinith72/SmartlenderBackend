@@ -15,11 +15,15 @@ const application = require('./routes/application');
 
 const portConfig = require('./conFig/portConfig');
 const express = require('express');
+const cors = require('cors')
 const app = express();
+app.use(cors());
+
 // console.log(process.env.PORT);
 
 app.get('/api',(req,res)=>{
-    res.send('hello ....SmartLender');
+    console.log('req..recived')
+    res.send({"test":"hello ....SmartLender"});
 });
 
 app.use('/api/login',login);
