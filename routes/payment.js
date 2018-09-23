@@ -43,7 +43,7 @@ router.put('/addPmt',(req,res) => {
         description: req.body.description ,
         lcid: req.body.lcId,
         empId : req.body.empId,
-        }
+        };
 
     connection.query("insert into payment (payment.dateNtime , payment.amount , payment.description , payment.loanCycleId , payment.employeeId)  values (? , ? , ? , ?, ?);",
     [ payment.time, payment.amount , payment.description , payment.lcid , payment.empId],
@@ -67,7 +67,7 @@ router.put('/addPmt',(req,res) => {
 
 // get a payment with a specific id
 router.get('/:id',(req,res) =>{
-    var id = req.params.id ;
+    const id = req.params.id ;
     // username is passed as varible
     
         connection.query("SELECT * FROM payment where payment.idpayment = ?;",
@@ -85,10 +85,27 @@ router.get('/:id',(req,res) =>{
 
                 }
         });
+});
+// get the sumof total payments for loan cyccle id
+router.get('/sum/:id',(req,res) =>{
+    const lcId = req.params.id ;
+    // username is passed as varible
+    sql = "select sum(payment.amount) from payment where payment.loanCycleId = ? ;";
+    connection.query(sql,
+        [lcId],(error,rows,fields)=>{
+            if(error){
+                console.log(`error : ${error}`);
+            } else{
+                // console.log(rows[0]);
+                if(rows[0] ){
+                    res.send(rows[0]);
+                    return;
+                }
 
+                res.status(400).send('no entries found ');
 
-
-
+            }
+        });
 });
 
 // update the payment with some details
@@ -107,8 +124,8 @@ router.post('/updatePmt',(req,res)=>{
         lcid: req.body.lcId,
         empId : req.body.empId, 
 
-    }
-    var sql = "update payment set payment.dateNtime = ? , payment.amount = ? , payment.description = ? , \n " +
+    };
+    const sql = "update payment set payment.dateNtime = ? , payment.amount = ? , payment.description = ? , \n " +
     "payment.loanCycleId = ? , payment.employeeId = ? where payment.idpayment = ?;";
 
         connection.query(sql,[ payment.time, payment.amount , payment.description , payment.lcid , payment.empId, payment.idPay],

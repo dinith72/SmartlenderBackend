@@ -70,6 +70,28 @@ router.put('/addAtt',(req,res) => {
 
 });
 
+// get the attedence of team member
+router.get('/:tmId/:status',(req,res) =>{
+    var tmId = req.params.tmId ;
+    var status = req.params.status;
+    sql= "select count(attendence.idattendence) as count from attendence " +
+        "where attendence.teamMemberId = ? and attendence.`status` = ? ;"
+    connection.query(sql,
+        [tmId, status],(error,rows,fields)=>{
+            if(error){
+                console.log(`error : ${error}`);
+            } else{
+                // console.log(rows[0]);
+                if(rows[0] ){
+                    res.send(rows[0]);
+                    return;
+                }
+                res.status(400).send('no entries found ');
+
+            }
+        });
+
+});
 
 // get a attedence to a perticular attedence id 
 router.get('/:attId',(req,res) =>{

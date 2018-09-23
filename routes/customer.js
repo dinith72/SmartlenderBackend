@@ -79,7 +79,7 @@ router.get('/:nic/:comId',(req,res) =>{
     const  nic = req.params.nic;
     // username is passed as varible
     
-        connection.query("SELECT * FROM smartlender.customer where customer.NIC = ? and customer.company_idcompany = ? ;",
+        connection.query("SELECT * FROM customer where customer.NIC = ? and customer.company_idcompany = ? ;",
             [nic,comId],(error,rows,fields)=>{
                 if(error){
                     console.log(`error : ${error}`);
@@ -93,6 +93,31 @@ router.get('/:nic/:comId',(req,res) =>{
                     res.status(400).send('no entries found ');
 
                 }
+        });
+
+
+
+
+});
+
+router.get('/:comId',(req,res) =>{
+    const comId = req.params.comId ;
+    // username is passed as varible
+
+    connection.query("SELECT * FROM customer where  customer.company_idcompany = ? ;",
+        [comId],(error,rows,fields)=>{
+            if(error){
+                console.log(`error : ${error}`);
+            } else{
+                // console.log(rows[0]);
+                if(rows[0] ){
+                    res.send(rows);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
         });
 
 

@@ -32,9 +32,9 @@ router.put('/addTmem',(req,res) => {
         cusId : req.body.cusId,
         comId : req.body.comId,
         teamId : req.body.teamId,
-        }
-        var sql = "insert into teammember ( teammember.customerId , teammember.comapnyId , teammember.teamId)\n"+
-            "values (? ,  ? , ? );"
+        };
+        let sql = "insert into teammember ( teammember.customerId , teammember.comapnyId , teammember.teamId)\n"+
+            "values (? ,  ? , ? );";
     connection.query(sql,
     [TeamMember.cusId , TeamMember.comId , TeamMember.teamId ],
     (err,result)=>{
@@ -57,7 +57,7 @@ router.put('/addTmem',(req,res) => {
 
 // get a team meber with a specific id
 router.get('/:teamMemId',(req,res) =>{
-    var teamMemId = req.params.teamMemId ;
+    const teamMemId = req.params.teamMemId ;
     connection.query("SELECT * FROM teammember where teammember.idteamMember = ?;",
         [teamMemId],(error,rows,fields)=>{
             if(error){
@@ -86,10 +86,10 @@ router.post('/updateTmem',(req,res)=>{
         teamMemId : req.body.teamMemId,
         cusId : req.body.cusId,
         teamId : req.body.teamId
-        }
+        };
     
     
-    var sql = "update teammember set  teammember.customerId = ? ,  teammember.teamId = ?\n"+
+    const sql = "update teammember set  teammember.customerId = ? ,  teammember.teamId = ?\n"+
     "where teammember.idteamMember = ? ;";
 
         connection.query(sql,
@@ -108,6 +108,29 @@ router.post('/updateTmem',(req,res)=>{
         }) ;
 
 
+
+});
+
+router.get('/:nic/:comId',(req,res) =>{
+    console.log("req recived");
+    const nic = req.params.nic ;
+    const comId = req.params.comId;
+    const sql = "SELECT teammember.teamId, teammember.idteamMember FROM teammember where teammember.customerId = ? " +
+        "and teammember.comapnyId = ? order by teammember.teamId desc limit 1 ;";
+    connection.query(sql,
+        [nic,comId],(error,rows,fields)=>{
+            if(error){
+                console.log(`error : ${error}`);
+            } else{
+                // console.log(rows[0]);
+                if(rows[0] ){
+                    res.send(rows[0]);
+                    return;
+                }
+                res.status(400).send('no entries found ');
+
+            }
+        });
 
 });
 // connection.end();

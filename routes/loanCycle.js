@@ -97,6 +97,35 @@ router.get('/:id/:cno',(req,res) =>{
 
 
 });
+// getting active loan cycle
+router.get('/:nic/:cno/:status',(req,res) =>{
+    console.log('req recives');
+    const nic = req.params.nic ;
+    const compnyNumber = req.params.cno;
+    const status = req.params.status;
+    // username is passed as varible
+    const sql = "select * from loancycle where loancycle.nic = ? and" +
+        " loancycle.companyId = ? and loancycle.ststus = ?;"
+    connection.query(sql,
+        [nic,compnyNumber,status],(error,rows,fields)=>{
+            if(error){
+                console.log(`error : ${error}`);
+            } else{
+                // console.log(rows[0]);
+                if(rows[0] ){
+                    res.send(rows[0]);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+
+
+
+
+});
 
 // update the loancycle with some details
 router.post('/updlc',(req,res)=>{

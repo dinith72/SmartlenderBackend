@@ -23,8 +23,8 @@ router.put('/addUser',(req,res) => {
         res.status(400).send(result.error.details[0].message);
         return;
     }
-    var userName = req.body.un ;
-    var passWord = req.body.pw;
+    let userName = req.body.un ;
+    let passWord = req.body.pw;
     connection.query("insert into login(login.username, login.`password`) values (?,?);",
         [userName,passWord],
         (err,result)=>{
@@ -48,10 +48,11 @@ router.get('/',(req,res) =>{
 });
 
 // check whther the entered username and pasword is correct
-router.post('/validate',(req,res) =>{
+router.post('/validate',(req,res,) =>{
     console.log("req came");
-    var userName = req.body.un ;
-    var passWord = req.body.pw;
+
+    let userName = req.body.un;
+    let passWord = req.body.pw;
     console.log(userName , passWord);
     // username is passed as varible
     connection.query("SELECT login.`password` FROM login where login.username = ?;",[userName],
@@ -61,15 +62,15 @@ router.post('/validate',(req,res) =>{
             return;
         }
         if(rows[0]){
-            var dbpw = rows[0].password;
+            let dbpw = rows[0].password;
             if(dbpw == passWord){
-                res.send({"result":"valid"});
+                res.send(JSON.stringify({"result":"valid"}));
             }else {
-                res.send({"result":"invalid"});
+                res.send(JSON.stringify({"result":"invalid"}));
             }
             return;
         }
-        res.status(200).send("invalid");
+        res.status(200).send(JSON.stringify({"result":"invalid"}));
 
     });
 
@@ -84,10 +85,10 @@ router.post('/updateUser',(req,res)=>{
         return;
     }
 
-    var userName = req.body.un ;
-    var passWord = req.body.pw;
+    let userName = req.body.un ;
+    let passWord = req.body.pw;
 
-    var sql = "update  login set login.`password` = ? where login.username = ?;";
+    let sql = "update  login set login.`password` = ? where login.username = ?;";
 
     connection.query(sql,[ passWord, userName ],
         (err , result)=>{
