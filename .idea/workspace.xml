@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2124ad4-7886-41a5-937d-1a6810c25809" name="Default" comment="adding customer asset directory">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/customerAsset.js" />
+    <list default="true" id="c2124ad4-7886-41a5-937d-1a6810c25809" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/center.js" afterPath="$PROJECT_DIR$/routes/center.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customerAsset.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="customerAsset.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/customerAsset.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
@@ -36,6 +35,20 @@
               <folding>
                 <element signature="e#463#817#0" expanded="false" />
                 <element signature="e#889#2268#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="center.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/center.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="103" column="81" lean-forward="false" selection-start-line="103" selection-start-column="75" selection-end-line="103" selection-end-column="81" />
+              <folding>
+                <element signature="e#1195#2410#0" expanded="false" />
+                <element signature="e#2474#2990#0" expanded="false" />
+                <element signature="e#3833#5126#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -81,7 +94,6 @@
         <option value="$PROJECT_DIR$/routes/branch.js" />
         <option value="$PROJECT_DIR$/routes/company.js" />
         <option value="$PROJECT_DIR$/conFig/dbConnection.js" />
-        <option value="$PROJECT_DIR$/routes/center.js" />
         <option value="$PROJECT_DIR$/routes/loan.js" />
         <option value="$PROJECT_DIR$/routes/customer.js" />
         <option value="$PROJECT_DIR$/routes/team.js" />
@@ -92,6 +104,7 @@
         <option value="$PROJECT_DIR$/routes/payment.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/routes/customerAsset.js" />
+        <option value="$PROJECT_DIR$/routes/center.js" />
       </list>
     </option>
   </component>
@@ -205,7 +218,7 @@
       <workItem from="1537665167439" duration="1319000" />
       <workItem from="1537673305788" duration="681000" />
       <workItem from="1537691000384" duration="8164000" />
-      <workItem from="1537713347207" duration="5875000" />
+      <workItem from="1537713347207" duration="8377000" />
     </task>
     <task id="LOCAL-00001" summary="created the basic foundation for the app&#10;-port info&#10;-db login info">
       <created>1536996972613</created>
@@ -277,11 +290,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537718548962</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="adding customer asset directory">
+      <created>1537722663895</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1537722663895</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79351000" />
+    <option name="totallyTimeSpent" value="81853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1382" height="744" extended-state="6" />
@@ -658,13 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/center.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="120" column="38" lean-forward="false" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conFig/dbConnection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -738,6 +751,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/customerAsset.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="146" column="6" lean-forward="true" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
+          <folding>
+            <element signature="e#463#817#0" expanded="false" />
+            <element signature="e#889#2268#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -746,13 +770,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/customerAsset.js">
+    <entry file="file://$PROJECT_DIR$/routes/center.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="146" column="6" lean-forward="true" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
+        <state relative-caret-position="185">
+          <caret line="103" column="81" lean-forward="false" selection-start-line="103" selection-start-column="75" selection-end-line="103" selection-end-column="81" />
           <folding>
-            <element signature="e#463#817#0" expanded="false" />
-            <element signature="e#889#2268#0" expanded="false" />
+            <element signature="e#1195#2410#0" expanded="false" />
+            <element signature="e#2474#2990#0" expanded="false" />
+            <element signature="e#3833#5126#0" expanded="false" />
           </folding>
         </state>
       </provider>

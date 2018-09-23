@@ -74,7 +74,7 @@ router.put('/addCen',(req,res) => {
 
 });
 
-// getting the company details
+// getting the center details
 router.get('/:id',(req,res) =>{
     var id = req.params.id ;
     // username is passed as varible
@@ -98,6 +98,31 @@ router.get('/:id',(req,res) =>{
 
 });
 
+// getting the center details for team id
+router.get('/team/:id',(req,res) =>{
+    var id = req.params.id ;
+    const  sql = "select center.centerName , center.centerAdress , center.`status` \n" +
+        "from center inner join team on  center.idcenter = team.center_idcenter " +
+        "where team.idteam = ?;"
+    connection.query(sql,
+        [id],
+        (error,rows,fields)=>{
+            if(error){
+                // console.log(`error : ${error}`);
+                res.status(400).send(error);
+                return;
+            }
+            // console.log(rows[0]);
+            if(rows[0]){
+                res.send(rows[0]);
+                return;
+            }
+
+            res.status(400).send('no entries found for that id');
+
+        });
+
+});
 // update the company with some details
 router.post('/updateCen',(req,res)=>{
     const result = joi.validate(req.body, schemaUpdate);
