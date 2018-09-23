@@ -12,6 +12,7 @@ const teamMember = require('./routes/teamMember');
 const attendence = require('./routes/attendence');
 const empLocation = require('./routes/empLocation');
 const application = require('./routes/application');
+const customerAsset = require('./routes/customerAsset');
 
 const portConfig = require('./conFig/portConfig');
 const express = require('express');
@@ -40,6 +41,7 @@ app.use('/api/tmem',teamMember);
 app.use('/api/att',attendence);
 app.use('/api/loc',empLocation);
 app.use('/api/apl',application);
+app.use('/api/cusAs',customerAsset);
 
 app.listen(portConfig.port, ()=>{
     console.log(`listining on port ${portConfig.port}`);
