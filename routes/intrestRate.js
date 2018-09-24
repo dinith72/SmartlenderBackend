@@ -2,7 +2,7 @@ const express = require('express');
 const joi = require('joi');
 const router =  express();
 const cors = require('cors');
-router.use(cors()); 
+router.use(cors());
 router.use(express.json()); // convert the jason data to the body
 const connection = require('../conFig/dbConnection'); // getting db info
 
@@ -10,7 +10,7 @@ const connection = require('../conFig/dbConnection'); // getting db info
 
 //add new payment : schema definition
 const schemaAdd = {
-   
+
     time : joi.string().required(),
     amount : joi.number().min(0),
     description : joi.string().required(),
@@ -37,90 +37,47 @@ router.put('/addPmt',(req,res) => {
         return;
     }
     const payment = {
-        
+
         time: req.body.time,
         amount : req.body.amount,
         description: req.body.description ,
         lcid: req.body.lcId,
         empId : req.body.empId,
-        };
+    };
 
     connection.query("insert into payment (payment.dateNtime , payment.amount , payment.description , payment.loanCycleId , payment.employeeId)  values (? , ? , ? , ?, ?);",
-    [ payment.time, payment.amount , payment.description , payment.lcid , payment.empId],
-    (err,result)=>{
-        if(err){
-            res.status(400).send(err);
-            return;
-        }
-        if(result.affectedRows >0){
-            res.status(200).send(result.insertId.toString())
-        }else{
-            res.status(400).send("error in addition of record ");
-        }
+        [ payment.time, payment.amount , payment.description , payment.lcid , payment.empId],
+        (err,result)=>{
+            if(err){
+                res.status(400).send(err);
+                return;
+            }
+            if(result.affectedRows >0){
+                res.status(200).send(result.insertId.toString())
+            }else{
+                res.status(400).send("error in addition of record ");
+            }
 
 
-    });
+        });
 
 
-    });
+});
 
 
-// get a payment with a specific id
+// get an intrest details specific id
 router.get('/:id',(req,res) =>{
     const id = req.params.id ;
     // username is passed as varible
-    
-        connection.query("SELECT * FROM payment where payment.idpayment = ?;",
-            [id],(error,rows,fields)=>{
-                if(error){
-                    console.log(`error : ${error}`);
-                } else{
-                    // console.log(rows[0]);
-                    if(rows[0] ){
-                        res.send(rows[0]);
-                        return;
-                    }
-
-                    res.status(400).send('no entries found ');
-
-                }
-        });
-});
-// get the sumof total payments for loan cyccle id
-router.get('/sum/:id',(req,res) =>{
-    const lcId = req.params.id ;
-    // username is passed as varible
-    sql = "select sum(payment.amount) from payment where payment.loanCycleId = ? ;";
+    const sql = "select * from intrestrate where intrestrate.idintrestRate = ?"
     connection.query(sql,
-        [lcId],(error,rows,fields)=>{
+        [id],(error,rows,fields)=>{
             if(error){
                 console.log(`error : ${error}`);
             } else{
                 // console.log(rows[0]);
                 if(rows[0] ){
                     res.send(rows[0]);
-                    return;
-                }
-
-                res.status(400).send('no entries found ');
-
-            }
-        });
-});
-
-// getting the payment data for lcid
-router.get('/lcid/:id',(req,res) =>{
-    const lcId = req.params.id ;
-    // username is passed as varible
-    const sql = "select * from payment where payment.loanCycleId = ? order by payment.dateNtime ;";
-    connection.query(sql,
-        [lcId],(error,rows,fields)=>{
-            if(error){
-                console.log(`error : ${error}`);
-            } else{
-                // console.log(rows[0]);
-                if(rows[0] ){
-                    res.send(rows);
                     return;
                 }
 
@@ -137,34 +94,34 @@ router.post('/updatePmt',(req,res)=>{
         res.status(400).send(result.error.details[0].message);
         return;
     }
-    
+
     const payment = {
         idPay: req.body.idPay,
         time: req.body.time,
         amount : req.body.amount,
         description: req.body.description ,
         lcid: req.body.lcId,
-        empId : req.body.empId, 
+        empId : req.body.empId,
 
     };
     const sql = "update payment set payment.dateNtime = ? , payment.amount = ? , payment.description = ? , \n " +
-    "payment.loanCycleId = ? , payment.employeeId = ? where payment.idpayment = ?;";
+        "payment.loanCycleId = ? , payment.employeeId = ? where payment.idpayment = ?;";
 
-        connection.query(sql,[ payment.time, payment.amount , payment.description , payment.lcid , payment.empId, payment.idPay],
-            (err , result)=>{
-                if(err){
-                    res.status(400).send(err);
-                    return;
-                }
-                if(result.affectedRows >0){
-                    res.send("success");
-                }else{
-                    res.status(400).send("incorrect payment id");
-                }
+    connection.query(sql,[ payment.time, payment.amount , payment.description , payment.lcid , payment.empId, payment.idPay],
+        (err , result)=>{
+            if(err){
+                res.status(400).send(err);
+                return;
+            }
+            if(result.affectedRows >0){
+                res.send("success");
+            }else{
+                res.status(400).send("incorrect payment id");
+            }
             console.log(result.rowsAffected);
         }) ;
 
-            
+
 
 });
 // connection.end();

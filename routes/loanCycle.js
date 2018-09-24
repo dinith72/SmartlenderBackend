@@ -99,7 +99,7 @@ router.get('/:id/:cno',(req,res) =>{
 });
 // getting active loan cycle
 router.get('/:nic/:cno/:status',(req,res) =>{
-    console.log('req recives');
+    console.log('req recives active lc');
     const nic = req.params.nic ;
     const compnyNumber = req.params.cno;
     const status = req.params.status;
@@ -114,6 +114,36 @@ router.get('/:nic/:cno/:status',(req,res) =>{
                 // console.log(rows[0]);
                 if(rows[0] ){
                     res.send(rows[0]);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+
+
+
+
+});
+
+
+// getting all the loan cycles for a person
+router.get('/cus/all/:nic/:cno',(req,res) =>{
+    // console.log('req recives lc');
+    const nic = req.params.nic ;
+    const compnyNumber = req.params.cno;
+    // username is passed as varible
+    const sql = "SELECT * FROM loancycle where loancycle.nic = ? and " +
+        "loancycle.companyId = ?;";
+    connection.query(sql,
+        [nic,compnyNumber],(error,rows,fields)=>{
+            if(error){
+                console.log(`error : ${error}`);
+            } else{
+                // console.log(rows[0]);
+                if(rows[0] ){
+                    res.send(rows);
                     return;
                 }
 
