@@ -66,6 +66,32 @@ router.put('/addEmp',(req,res) => {
 
 });
 
+// get all the employees in a company
+router.get('/:comId',(req,res) =>{
+    var comId = req.params.comId ;
+    var nic = req.params.nic;
+    
+    const sql = "SELECT * FROM employee where employee.company_idcompany = 2;";
+    connection.query(sql,
+        [nic,comId],(error,rows,fields)=>{
+            if(error){
+                console.log(`error : ${error}`);
+            } else{
+                // console.log(rows[0]);
+                if(rows[0] ){
+                    res.send(rows);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+    });
+
+
+
+
+});
 
 // get a employee with a specific id
 router.get('/:comId/:nic',(req,res) =>{

@@ -109,6 +109,35 @@ router.get('/:empId/:dts/:dte',(req,res) =>{
 
 });
 
+
+// get location of an employee with nic and company id
+router.get('/:nic/:comId',(req,res) =>{
+    var comId = req.params.comId ;
+    var nic = req.params.nic;
+    
+    const sql = "SELECT * FROM employee_location where employee_location.employeeId = ? \n"+
+        "and employee_location.comId = ?;"
+    connection.query(sql,
+        [nic,comId],(error,rows,fields)=>{
+            if(error){
+                console.log(`error : ${error}`);
+            } else{
+                // console.log(rows[0]);
+                if(rows[0] ){
+                    res.send(rows);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+    });
+
+
+
+
+});
+
 // get the location entries for employees in a given time period
 // router.post('/report/datePeroid',(req,res) =>{
 //     var empId = req.body.empId ;

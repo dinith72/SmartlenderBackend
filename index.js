@@ -15,6 +15,7 @@ const application = require('./routes/application');
 const customerAsset = require('./routes/customerAsset');
 const intrestRate = require('./routes/intrestRate');
 
+
 const portConfig = require('./conFig/portConfig');
 const express = require('express');
 const cors = require('cors')
@@ -44,6 +45,7 @@ app.use('/api/loc',empLocation);
 app.use('/api/apl',application);
 app.use('/api/cusAs',customerAsset);
 app.use('/api/int',intrestRate);
+
 
 app.listen(portConfig.port, ()=>{
     console.log(`listining on port ${portConfig.port}`);
