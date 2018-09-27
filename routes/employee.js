@@ -87,10 +87,6 @@ router.get('/:comId',(req,res) =>{
 
             }
     });
-
-
-
-
 });
 
 // get a employee with a specific id

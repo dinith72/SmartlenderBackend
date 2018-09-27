@@ -64,6 +64,29 @@ router.put('/addPmt',(req,res) => {
 
     });
 
+// get total of payments collected by emp in a day
+router.get('/:nic/:date', (req, res) => {
+    var date = req.params.date;
+    var nic = req.params.nic;
+
+    const sql = "SELECT sum(payment.amount) as pmnt FROM payment where payment.employeeId = ?" +
+        " and payment.dateNtime like ?;";
+    connection.query(sql,
+        [nic, date], (error, rows, fields) => {
+            if (error) {
+                console.log(`error : ${error}`);
+            } else {
+                // console.log(rows[0]);
+                if (rows[0]) {
+                    res.send(rows[0]);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+});
 
 // get a payment with a specific id
 router.get('/:id',(req,res) =>{

@@ -57,24 +57,25 @@ router.put('/addLoc',(req,res) => {
 
 
 // get a location entries for employee id
-router.get('/:empId',(req,res) =>{
-    var empId = req.params.empId ;
-    connection.query("SELECT * FROM employee_location where employee_location.employeeId = ?;",
-        [empId],(error,rows,fields)=>{
-            if(error){
-                console.log(`error : ${error}`);
-            } else{
-                // console.log(rows[0]);
-                if(rows ){
-                    res.send(rows);
-                    return;
-                }
-                res.status(400).send('no entries found ');
-
-            }
-    });
-
-});
+// router.get('/:empId',(req,res) =>{
+//     var empId = req.params.empId ;
+//     connection.query("SELECT * FROM employee_location where employee_location.employeeId = ? " +
+//         "and employee_location.timestamp like ?;",
+//         [empId],(error,rows,fields)=>{
+//             if(error){
+//                 console.log(`error : ${error}`);
+//             } else{
+//                 // console.log(rows[0]);
+//                 if(rows ){
+//                     res.send(rows);
+//                     return;
+//                 }
+//                 res.status(400).send('no entries found ');
+//
+//             }
+//     });
+//
+// });
 // get a location entries for employee id within give date format
 router.get('/:empId/:dts/:dte',(req,res) =>{
     const schemaDate= {
@@ -111,14 +112,14 @@ router.get('/:empId/:dts/:dte',(req,res) =>{
 
 
 // get location of an employee with nic and company id
-router.get('/:nic/:comId',(req,res) =>{
-    var comId = req.params.comId ;
+router.get('/:nic/:date',(req,res) =>{
+    var date = req.params.date ;
     var nic = req.params.nic;
     
-    const sql = "SELECT * FROM employee_location where employee_location.employeeId = ? \n"+
-        "and employee_location.comId = ?;"
+    const sql = "SELECT * FROM employee_location where employee_location.timestamp like ? and " +
+        "employee_location.employeeId = ? ;"
     connection.query(sql,
-        [nic,comId],(error,rows,fields)=>{
+        [date+'%',nic],(error,rows,fields)=>{
             if(error){
                 console.log(`error : ${error}`);
             } else{
