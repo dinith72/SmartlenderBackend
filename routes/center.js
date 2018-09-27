@@ -75,11 +75,11 @@ router.put('/addCen',(req,res) => {
 });
 
 // getting the center details
-router.get('/:id',(req,res) =>{
-    var id = req.params.id ;
+router.get('/',(req,res) =>{
+
     // username is passed as varible
-    connection.query("SELECT * FROM center where center.idcenter = ?;",
-        [id],
+    connection.query("SELECT * FROM center;",
+        [],
         (error,rows,fields)=>{
         if(error){
             // console.log(`error : ${error}`);
@@ -88,7 +88,7 @@ router.get('/:id',(req,res) =>{
         }
             // console.log(rows[0]);
         if(rows[0]){
-            res.send(rows[0]);
+            res.send(rows);
             return;
         }
 

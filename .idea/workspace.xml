@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c2124ad4-7886-41a5-937d-1a6810c25809" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/empLocation.js" afterPath="$PROJECT_DIR$/routes/empLocation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/employee.js" afterPath="$PROJECT_DIR$/routes/employee.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/center.js" afterPath="$PROJECT_DIR$/routes/center.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/loan.js" afterPath="$PROJECT_DIR$/routes/loan.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/payment.js" afterPath="$PROJECT_DIR$/routes/payment.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,24 +22,53 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="269">
               <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="payment.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="payment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/payment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="82" column="17" lean-forward="true" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+            <state relative-caret-position="184">
+              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding>
                 <element signature="e#911#1894#0" expanded="false" />
-                <element signature="e#2677#3247#0" expanded="false" />
-                <element signature="e#3335#3892#0" expanded="false" />
-                <element signature="e#3968#4537#0" expanded="false" />
-                <element signature="e#4617#5765#0" expanded="false" />
+                <element signature="e#1989#2607#0" expanded="false" />
+                <element signature="e#2722#3862#0" expanded="false" />
+                <element signature="e#3934#4504#0" expanded="false" />
+                <element signature="e#4592#5149#0" expanded="false" />
+                <element signature="e#5225#5794#0" expanded="false" />
+                <element signature="e#5874#7022#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loan.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/loan.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
+              <folding>
+                <element signature="e#657#1410#0" expanded="false" />
+                <element signature="e#2205#2768#0" expanded="false" />
+                <element signature="e#2846#3713#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="center.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/center.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="963">
+              <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+              <folding>
+                <element signature="e#3009#3692#0" expanded="false" />
+                <element signature="e#3771#5064#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -75,20 +104,20 @@
         <option value="$PROJECT_DIR$/routes/branch.js" />
         <option value="$PROJECT_DIR$/routes/company.js" />
         <option value="$PROJECT_DIR$/conFig/dbConnection.js" />
-        <option value="$PROJECT_DIR$/routes/loan.js" />
         <option value="$PROJECT_DIR$/routes/customer.js" />
         <option value="$PROJECT_DIR$/routes/team.js" />
         <option value="$PROJECT_DIR$/routes/attendence.js" />
         <option value="$PROJECT_DIR$/routes/login.js" />
         <option value="$PROJECT_DIR$/routes/teamMember.js" />
         <option value="$PROJECT_DIR$/routes/customerAsset.js" />
-        <option value="$PROJECT_DIR$/routes/center.js" />
         <option value="$PROJECT_DIR$/routes/loanCycle.js" />
         <option value="$PROJECT_DIR$/routes/intrestRate.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/routes/employee.js" />
         <option value="$PROJECT_DIR$/routes/empLocation.js" />
+        <option value="$PROJECT_DIR$/routes/center.js" />
         <option value="$PROJECT_DIR$/routes/payment.js" />
+        <option value="$PROJECT_DIR$/routes/loan.js" />
       </list>
     </option>
   </component>
@@ -157,7 +186,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../webAppFrontend" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
@@ -207,7 +236,9 @@
       <workItem from="1537761883938" duration="5544000" />
       <workItem from="1537809700477" duration="1238000" />
       <workItem from="1537835273725" duration="6036000" />
-      <workItem from="1538032449157" duration="3376000" />
+      <workItem from="1538032449157" duration="3430000" />
+      <workItem from="1538039888495" duration="67000" />
+      <workItem from="1538048153337" duration="4600000" />
     </task>
     <task id="LOCAL-00001" summary="created the basic foundation for the app&#10;-port info&#10;-db login info">
       <created>1536996972613</created>
@@ -307,11 +338,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537835364581</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="modification in the backend for the weekly collection destribution grpah">
+      <created>1538039599926</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1538039599926</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100136000" />
+    <option name="totallyTimeSpent" value="104857000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1382" height="744" extended-state="6" />
@@ -320,12 +358,12 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1436012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.497545" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11854584" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30278233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31587562" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -403,11 +441,12 @@
     <MESSAGE value="modification to incoperate center ifo in the front end" />
     <MESSAGE value="modification to incoperate payments graph in the  in the front end app" />
     <MESSAGE value="modification to incoperate travelled locatiion in the dashboard in the  in the front end app" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification to incoperate travelled locatiion in the dashboard in the  in the front end app" />
+    <MESSAGE value="modification in the backend for the weekly collection destribution grpah" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification in the backend for the weekly collection destribution grpah" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -673,13 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/loan.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="87" column="23" lean-forward="false" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/team.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -715,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/center.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="103" column="81" lean-forward="false" selection-start-line="103" selection-start-column="75" selection-end-line="103" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/loanCycle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -747,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="121" column="17" lean-forward="false" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,32 +779,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="69" column="33" lean-forward="false" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
-          <folding>
-            <element signature="e#2296#2846#0" expanded="false" />
-            <element signature="e#2925#3539#0" expanded="false" />
-            <element signature="e#3620#5134#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="269">
           <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="963">
+          <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+          <folding>
+            <element signature="e#3009#3692#0" expanded="false" />
+            <element signature="e#3771#5064#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/payment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="82" column="17" lean-forward="true" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+        <state relative-caret-position="184">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding>
             <element signature="e#911#1894#0" expanded="false" />
-            <element signature="e#2677#3247#0" expanded="false" />
-            <element signature="e#3335#3892#0" expanded="false" />
-            <element signature="e#3968#4537#0" expanded="false" />
-            <element signature="e#4617#5765#0" expanded="false" />
+            <element signature="e#1989#2607#0" expanded="false" />
+            <element signature="e#2722#3862#0" expanded="false" />
+            <element signature="e#3934#4504#0" expanded="false" />
+            <element signature="e#4592#5149#0" expanded="false" />
+            <element signature="e#5225#5794#0" expanded="false" />
+            <element signature="e#5874#7022#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/loan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
+          <folding>
+            <element signature="e#657#1410#0" expanded="false" />
+            <element signature="e#2205#2768#0" expanded="false" />
+            <element signature="e#2846#3713#0" expanded="false" />
           </folding>
         </state>
       </provider>

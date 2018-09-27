@@ -88,6 +88,38 @@ router.get('/:nic/:date', (req, res) => {
         });
 });
 
+// get the sum of money collected by single employee in a center
+router.get('/:cenId/:nic/:dte', (req, res) => {
+    var cenId = req.params.cenId;
+    var nic = req.params.nic;
+    var date = req.params.dte;
+
+    const sql = "select sum(payment.amount) as total , center.centerName\n" +
+        "from ((((payment inner join loancycle on payment.loanCycleId = loancycle.idLoanCycle)\n" +
+        "\t\t\t\tinner join loan on loancycle.idloan = loan.idloan )\n" +
+        "                inner join teammember on loan.teamMemberId = teammember.idteamMember)\n" +
+        "                inner join team on teammember.teamId = team.idteam)\n" +
+        "                inner join center on team.center_idcenter = center.idcenter\n" +
+        "where center.idcenter = ? and payment.employeeId = ? and payment.dateNtime like ?";
+    connection.query(sql,
+        [cenId ,nic, date+'%'], (error, rows, fields) => {
+            if (error) {
+                console.log(`error : ${error}`);
+            } else {
+                // console.log(rows[0]);
+                if (rows[0]) {
+                    res.send(rows[0]);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+});
+
+
+
 // get a payment with a specific id
 router.get('/:id',(req,res) =>{
     const id = req.params.id ;
