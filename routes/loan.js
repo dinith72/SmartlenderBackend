@@ -55,10 +55,33 @@ router.put('/addLoan',(req,res) => {
 
     });
 
+//get the sum of the total loans grnated between to days
+router.get('/:dtStart/:dtEnd', (req, res) => {
+    let dtStart = req.params.dtStart;
+    let dtEnd = req.params.dtEnd;
+
+    const sql = "SELECT sum(loancycle.amount) as total from  loancycle where date(grantedDate)" +
+        " between ? and ? ;";
+    connection.query(sql,
+        [dtStart, dtEnd], (error, rows, fields) => {
+            if (error) {
+                console.log(`error : ${error}`);
+            } else {
+                // console.log(rows[0]);
+                if (rows[0]) {
+                    res.send(rows[0]);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+});
 
 // get a loan with a specific id
 router.get('/:id',(req,res) =>{
-    var id = req.params.id ;
+    let id = req.params.id ;
     // username is passed as varible
     
         connection.query("SELECT * FROM loan where loan.idloan = ?;",
@@ -95,7 +118,7 @@ router.post('/updateLoan',(req,res)=>{
         teamMemId: req.body.teamMemId
 
     };
-    var sql = "update loan set loan.refNo = ? , loan.teamMemberId = ? where loan.idloan = ? ;";
+    let sql = "update loan set loan.refNo = ? , loan.teamMemberId = ? where loan.idloan = ? ;";
 
         connection.query(sql,[loan.refNo , loan.teamMemId, loan.loanId ],
             (err , result)=>{
