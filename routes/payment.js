@@ -142,10 +142,11 @@ router.get('/:id',(req,res) =>{
         });
 });
 // get the sumof total payments for loan cyccle id
-router.get('/sum/:id',(req,res) =>{
+router.get('/sum/sum2/sum3/:id',(req,res) =>{
     const lcId = req.params.id ;
+    console.log(lcId);
     // username is passed as varible
-    sql = "select sum(payment.amount) from payment where payment.loanCycleId = ? ;";
+    sql = "select sum(payment.amount) from payment where payment.loanCycleId = 4";
     connection.query(sql,
         [lcId],(error,rows,fields)=>{
             if(error){
@@ -164,7 +165,7 @@ router.get('/sum/:id',(req,res) =>{
 });
 
 // getting the payment data for lcid
-router.get('/lcid/:id',(req,res) =>{
+router.get('/lcid/lcid2/lcid3/:id',(req,res) =>{
     const lcId = req.params.id ;
     // username is passed as varible
     const sql = "select * from payment where payment.loanCycleId = ? order by payment.dateNtime ;";

@@ -127,6 +127,89 @@ router.get('/:nic/:cno/:status',(req,res) =>{
 
 });
 
+// getting the sum of the loans granted in a month by a center
+router.get('/loansGranted/sum/:cenId/:mth', (req, res) => {
+    let cenId = req.params.cenId;
+    let month = req.params.mth;
+
+    const sql = "select sum(loancycle.amount) as total , center.centerName\n" +
+        "from (((loancycle inner join loan on loancycle.idloan = loan.idloan )\n" +
+        "                inner join teammember on loan.teamMemberId = teammember.idteamMember)\n" +
+        "                inner join team on teammember.teamId = team.idteam)\n" +
+        "                inner join center on team.center_idcenter = center.idcenter\n" +
+        "where center.idcenter = ? and loancycle.grantedDate like ?";
+    connection.query(sql,
+        [cenId, month + '%'], (error, rows, fields) => {
+            if (error) {
+                console.log(`error : ${error}`);
+            } else {
+                // console.log(rows[0]);
+                if (rows[0]) {
+                    res.send(rows[0]);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+});
+
+router.get('/loansGranted/team/:teamId/:mth', (req, res) => {
+    let teamId = req.params.teamId;
+    let month = req.params.mth;
+
+    const sql = "select sum(loancycle.amount) as total \n" +
+        "from (loancycle inner join loan on loancycle.idloan = loan.idloan ) \n" +
+        "\tinner join  teammember on loan.teamMemberId = teammember.idteamMember \n" +
+        "    where teammember.teamId = ? and loancycle.grantedDate like ?;";
+    connection.query(sql,
+        [teamId, month + '%'], (error, rows, fields) => {
+            if (error) {
+                console.log(`error : ${error}`);
+            } else {
+                // console.log(rows[0]);
+                if (rows[0]) {
+                    res.send(rows[0]);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+});
+
+router.get('/loansGranted/details/:nic/:date', (req, res) => {
+    let nic = req.params.nic;
+    let date = req.params.date;
+    console.log('req recived details ');
+
+    const sql = "select sum(loancycle.amount) as amount , center.centerName\n" +
+        "from (((loancycle inner join loan on loancycle.idloan = loan.idloan)\n" +
+        "\tinner join teammember on loan.teamMemberId = teammember.idteamMember)\n" +
+        "    inner join team on teammember.teamId = team.idteam)\n" +
+        "    inner join center on team.center_idcenter = center.idcenter\n" +
+        "where team.center_idcenter in ( select center.idcenter from center) \n" +
+        "\tand loancycle.grantedDate like ?\n" +
+        "    and loancycle.employeeId like ?\n" +
+        "group by center.idcenter; "
+    connection.query(sql,
+        [ date, nic], (error, rows, fields) => {
+            if (error) {
+                console.log(`error : ${error}`);
+            } else {
+                // console.log(rows[0]);
+                if (rows[0]) {
+                    res.send(rows);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+});
 
 // getting all the loan cycles for a person
 router.get('/cus/all/:nic/:cno',(req,res) =>{

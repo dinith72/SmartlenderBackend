@@ -61,8 +61,27 @@ router.put('/addTeam',(req,res) => {
 
 
 });
+router.get('/cenId/:cenId', (req, res) => {
+    var cenId = req.params.cenId;
 
 
+    const sql = "select * from team where team.center_idcenter = ?;";
+    connection.query(sql,
+        [cenId], (error, rows, fields) => {
+            if (error) {
+                console.log(`error : ${error}`);
+            } else {
+                // console.log(rows[0]);
+                if (rows) {
+                    res.send(rows);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+});
 // get a employee with a specific id
 router.get('/:teamId',(req,res) =>{
     var teamId = req.params.teamId ;
@@ -82,6 +101,33 @@ router.get('/:teamId',(req,res) =>{
     });
 
 });
+
+router.get('/pmtsMade/:tId/:mnth', (req, res) => {
+    var tId = req.params.tId;
+    var mnth = req.params.mnth;
+
+    const sql = "select sum(payment.amount) as amount \n" +
+        "from ((payment inner join loancycle on payment.loanCycleId = loancycle.idLoanCycle)\n" +
+        "\t\t\t\tinner join loan on loancycle.idloan = loan.idloan )\n" +
+        "                inner join teammember on loan.teamMemberId = teammember.idteamMember\n" +
+        "where teammember.teamId = ? and payment.dateNtime like ?;";
+    connection.query(sql,
+        [tId, mnth+'%'], (error, rows, fields) => {
+            if (error) {
+                console.log(`error : ${error}`);
+            } else {
+                // console.log(rows[0]);
+                if (rows[0]) {
+                    res.send(rows[0]);
+                    return;
+                }
+
+                res.status(400).send('no entries found ');
+
+            }
+        });
+});
+
 
 // update the employee with some details
 router.post('/updateTeam',(req,res)=>{
